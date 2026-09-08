@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BeachClubRouteImport } from './routes/beach-club'
+import { Route as BookRouteImport } from './routes/book'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const BeachClubRoute = BeachClubRouteImport.update({
   id: '/beach-club',
   path: '/beach-club',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -62,6 +68,7 @@ const TheHotelRoute = TheHotelRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/beach-club': typeof BeachClubRoute
+  '/book': typeof BookRoute
   '/contact': typeof ContactRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/beach-club': typeof BeachClubRoute
+  '/book': typeof BookRoute
   '/contact': typeof ContactRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/beach-club': typeof BeachClubRoute
+  '/book': typeof BookRoute
   '/contact': typeof ContactRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/beach-club'
+    | '/book'
     | '/contact'
     | '/experiences'
     | '/gallery'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/beach-club'
+    | '/book'
     | '/contact'
     | '/experiences'
     | '/gallery'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/beach-club'
+    | '/book'
     | '/contact'
     | '/experiences'
     | '/gallery'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BeachClubRoute: typeof BeachClubRoute
+  BookRoute: typeof BookRoute
   ContactRoute: typeof ContactRoute
   ExperiencesRoute: typeof ExperiencesRoute
   GalleryRoute: typeof GalleryRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/beach-club'
       fullPath: '/beach-club'
       preLoaderRoute: typeof BeachClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BeachClubRoute: BeachClubRoute,
+  BookRoute: BookRoute,
   ContactRoute: ContactRoute,
   ExperiencesRoute: ExperiencesRoute,
   GalleryRoute: GalleryRoute,
