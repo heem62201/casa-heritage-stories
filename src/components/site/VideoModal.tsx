@@ -22,6 +22,7 @@ export function VideoModal({ open, onClose, src, poster, caption }: VideoModalPr
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const v = videoRef.current;
+    if (v) v.muted = true; // browsers only allow silent autoplay
     void v?.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
     return () => {
       document.removeEventListener("keydown", onKey);
@@ -71,6 +72,7 @@ export function VideoModal({ open, onClose, src, poster, caption }: VideoModalPr
             poster={poster}
             playsInline
             controls
+            preload="metadata"
             className="max-h-[76vh] w-full bg-black object-contain"
           />
           <button
