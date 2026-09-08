@@ -26,6 +26,14 @@ export function Reveal({
       setVisible(true);
       return;
     }
+
+    // already within (or above) the viewport on mount — show immediately
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -35,10 +43,16 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0, rootMargin: "0px 0px -2% 0px" },
     );
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // safety net: never leave content permanently hidden
+    const timer = window.setTimeout(() => setVisible(true), 2500);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timer);
+    };
   }, []);
 
   return (
