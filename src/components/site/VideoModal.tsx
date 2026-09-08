@@ -72,6 +72,7 @@ export function VideoModal({ open, onClose, src, poster, caption }: VideoModalPr
             poster={poster}
             playsInline
             controls
+            preload="metadata"
             className="max-h-[76vh] w-full bg-black object-contain"
           />
           <button
