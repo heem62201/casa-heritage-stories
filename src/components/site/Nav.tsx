@@ -58,7 +58,7 @@ export function Nav({ overHero = false }: { overHero?: boolean }) {
             <Link
               to="/book"
               className={cn(
-                "hidden border px-6 py-3 label-xs transition-colors duration-500 sm:inline-flex",
+                "hidden whitespace-nowrap border px-6 py-3 label-xs transition-colors duration-500 sm:inline-flex",
                 light
                   ? "border-ivory/50 text-ivory hover:bg-ivory hover:text-ink"
                   : "border-charcoal/40 text-charcoal hover:bg-ink hover:text-ivory",
