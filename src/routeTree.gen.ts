@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BeachClubRouteImport } from './routes/beach-club'
+import { Route as BookRouteImport } from './routes/book'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as RestaurantRouteImport } from './routes/restaurant'
+import { Route as RoomsRouteImport } from './routes/rooms'
+import { Route as TheHotelRouteImport } from './routes/the-hotel'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeachClubRoute = BeachClubRouteImport.update({
+  id: '/beach-club',
+  path: '/beach-club',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperiencesRoute = ExperiencesRouteImport.update({
+  id: '/experiences',
+  path: '/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantRoute = RestaurantRouteImport.update({
+  id: '/restaurant',
+  path: '/restaurant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoomsRoute = RoomsRouteImport.update({
+  id: '/rooms',
+  path: '/rooms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheHotelRoute = TheHotelRouteImport.update({
+  id: '/the-hotel',
+  path: '/the-hotel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/beach-club': typeof BeachClubRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
+  '/experiences': typeof ExperiencesRoute
+  '/gallery': typeof GalleryRoute
+  '/restaurant': typeof RestaurantRoute
+  '/rooms': typeof RoomsRoute
+  '/the-hotel': typeof TheHotelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/beach-club': typeof BeachClubRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
+  '/experiences': typeof ExperiencesRoute
+  '/gallery': typeof GalleryRoute
+  '/restaurant': typeof RestaurantRoute
+  '/rooms': typeof RoomsRoute
+  '/the-hotel': typeof TheHotelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/beach-club': typeof BeachClubRoute
+  '/book': typeof BookRoute
+  '/contact': typeof ContactRoute
+  '/experiences': typeof ExperiencesRoute
+  '/gallery': typeof GalleryRoute
+  '/restaurant': typeof RestaurantRoute
+  '/rooms': typeof RoomsRoute
+  '/the-hotel': typeof TheHotelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/beach-club'
+    | '/book'
+    | '/contact'
+    | '/experiences'
+    | '/gallery'
+    | '/restaurant'
+    | '/rooms'
+    | '/the-hotel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/beach-club'
+    | '/book'
+    | '/contact'
+    | '/experiences'
+    | '/gallery'
+    | '/restaurant'
+    | '/rooms'
+    | '/the-hotel'
+  id:
+    | '__root__'
+    | '/'
+    | '/beach-club'
+    | '/book'
+    | '/contact'
+    | '/experiences'
+    | '/gallery'
+    | '/restaurant'
+    | '/rooms'
+    | '/the-hotel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeachClubRoute: typeof BeachClubRoute
+  BookRoute: typeof BookRoute
+  ContactRoute: typeof ContactRoute
+  ExperiencesRoute: typeof ExperiencesRoute
+  GalleryRoute: typeof GalleryRoute
+  RestaurantRoute: typeof RestaurantRoute
+  RoomsRoute: typeof RoomsRoute
+  TheHotelRoute: typeof TheHotelRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/beach-club': {
+      id: '/beach-club'
+      path: '/beach-club'
+      fullPath: '/beach-club'
+      preLoaderRoute: typeof BeachClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences': {
+      id: '/experiences'
+      path: '/experiences'
+      fullPath: '/experiences'
+      preLoaderRoute: typeof ExperiencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant': {
+      id: '/restaurant'
+      path: '/restaurant'
+      fullPath: '/restaurant'
+      preLoaderRoute: typeof RestaurantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rooms': {
+      id: '/rooms'
+      path: '/rooms'
+      fullPath: '/rooms'
+      preLoaderRoute: typeof RoomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-hotel': {
+      id: '/the-hotel'
+      path: '/the-hotel'
+      fullPath: '/the-hotel'
+      preLoaderRoute: typeof TheHotelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeachClubRoute: BeachClubRoute,
+  BookRoute: BookRoute,
+  ContactRoute: ContactRoute,
+  ExperiencesRoute: ExperiencesRoute,
+  GalleryRoute: GalleryRoute,
+  RestaurantRoute: RestaurantRoute,
+  RoomsRoute: RoomsRoute,
+  TheHotelRoute: TheHotelRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
